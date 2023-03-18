@@ -1,0 +1,34 @@
+.burgers{
+    margin-top: 150px;
+    text-align: center;
+
+    &__cards{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    &__button{
+        background-color: $color-bg-blue;
+        margin-top: 60px;
+    }
+}
+
+.burger{
+    padding: 20px;
+    width: 440px;
+    text-align: center;
+    border-radius: 26px;
+    box-shadow: 0px 3px 6px $color-shadow;
+
+    &__heading{
+        margin-bottom: 60px;
+    }
+
+    &__details{
+        display: block;
+        margin-top: 40px;
+        color: $color-text-blue;
+        text-align: right;
+    }
+}

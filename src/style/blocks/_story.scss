@@ -1,0 +1,16 @@
+.story{
+    margin-top: 150px;
+    display: flex;
+    gap: 50px;
+
+    &__heading{
+        margin-bottom: 20px;
+    }
+    &__description{
+        display: block;
+        margin-bottom: 50px;
+        font-size: 1.333333rem;
+        line-height: 1.4583;
+        font-weight: 700;
+    }
+}

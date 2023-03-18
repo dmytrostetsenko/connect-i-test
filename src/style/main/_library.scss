@@ -1,0 +1,25 @@
+@font-face{
+    font-family: 'Poppins';
+    src: url(../font/Poppins-Regular.woff2);
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url(../font/Poppins-Bold.woff2);
+    font-weight: 700;
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url(../font/Poppins-Black.woff2);
+    font-weight: 900;
+}
+
+$color-bg-blue: #00B3FA;
+$color-bg-blue-hover: #0197d3;
+$color-bg-yellow: #F6E224;
+$color-bg-yellow-hover: #d7c521;
+$color-bg-gray: #F5F5F5;
+$color-text-blue: #008BF6;
+$color-text-black:#2A2A2A;
+$color-shadow:#00000029;
+
+$transition: all .3s ease;

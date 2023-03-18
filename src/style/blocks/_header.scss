@@ -1,0 +1,57 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    &-group{
+        display: flex;
+        gap: 100px;
+    }
+    &__button{
+        cursor: default;
+        background-color: $color-bg-blue;
+    }
+}
+.menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 70px;
+    margin: 0;
+    padding: 0;
+    &__item{
+        &-link{
+            text-decoration: none;
+            color: $color-text-black;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+    }
+}
+.promo{
+    padding-top: 50px;
+    display: flex;
+    gap: 65px;
+
+    &__heading{
+        margin-bottom: 20px;
+    }
+    &__description{
+        margin: 0 0 30px;
+        font-size: 1.3333333rem;
+        line-height: 1.458;
+        font-weight: 700;
+    }
+    &__button{
+        background-color: $color-bg-yellow;
+        border: 3px solid $color-bg-yellow;
+        &:hover{
+            background-color: $color-bg-yellow-hover;
+            border-color: $color-bg-yellow-hover;
+        }
+    }
+
+    &__image{
+        max-width: 625px;
+    }
+}
