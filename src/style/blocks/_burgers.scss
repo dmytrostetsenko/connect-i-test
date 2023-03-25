@@ -6,6 +6,7 @@
         margin-top: 50px;
         display: flex;
         justify-content: space-between;
+        align-items: baseline;
     }
     
     &__button{
@@ -20,6 +21,14 @@
     text-align: center;
     border-radius: 26px;
     box-shadow: 0px 3px 6px $color-shadow;
+    transition: $transition;
+    cursor: pointer;
+    &._open{
+        & .burger__ingredients{
+            opacity: 1;
+            margin-top: 55px;
+        }
+    }
 
     &__heading{
         margin-bottom: 60px;
@@ -30,5 +39,53 @@
         margin-top: 40px;
         color: $color-text-blue;
         text-align: right;
+    }
+    &__ingredients{
+        text-align: start;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: $transition;
+        font-size: 0.77777777rem;
+        &-heading{
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        &-list{
+            margin: 0;
+            padding: 0;
+        }
+        &-item:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 1399.98px){
+    .burger{
+        max-width: 100%;
+        flex: 0 1 32%;
+        padding: 15px;
+        &__image{
+            max-width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 767.98px){
+    .burgers{
+        margin-top: 75px;
+        &__cards{
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+    .burger{
+        max-width: 75%;
+        border-radius: 15px;
+        &__heading{
+            margin-bottom: 50px;
+        }
     }
 }

@@ -4,10 +4,14 @@
 html{
     font-size: 18px;
     line-height: 1.5;
+    scroll-behavior: smooth;
 }
 body{
     font-family: 'Poppins';
     color: $color-text-black;
+    &._lock{
+        overflow: hidden;
+    }
 }
 
 p{
@@ -34,7 +38,7 @@ p{
 
 .main-heading{
     font-size: 4.66rem;
-    // line-height: 1.488;
+    line-height: 1.488;
     margin: 0;
     font-weight: 900;
 }
@@ -62,5 +66,49 @@ p{
     &:hover{
         background-color: $color-bg-blue-hover;
         border-color: $color-bg-blue-hover;
+    }
+}
+._highlight{
+    background-color: rgba($color: #00B3FA, $alpha: .4);
+}
+
+
+@media screen and (max-width: 1399.98px) {
+    .logo{
+        max-width: 150px;
+    }
+    html{
+        font-size: 16px;
+    }
+    .main-heading{
+        font-size: 4rem;
+    }
+    .large-heading{
+        font-size: 2.5rem;
+    }
+    .small-heading{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (max-width: 767.98px) {
+    .wrapper{
+        &-promo{
+            background-size: cover;
+        }
+    }
+    .button{
+        transition: none;
+        &:hover{
+            background-color: $color-bg-blue;
+            border-color: $color-bg-blue;
+        }
+    }
+}
+@media screen and (max-width: 479.98px){
+    html{
+        font-size: 14px;
+    }
+    .container{
+        padding: 0 15px;
     }
 }

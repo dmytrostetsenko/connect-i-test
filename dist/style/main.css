@@ -403,11 +403,16 @@ template {
 html {
   font-size: 18px;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Poppins";
   color: #2A2A2A;
+}
+
+body._lock {
+  overflow: hidden;
 }
 
 p {
@@ -437,6 +442,7 @@ p {
 
 .main-heading {
   font-size: 4.66rem;
+  line-height: 1.488;
   margin: 0;
   font-weight: 900;
 }
@@ -471,6 +477,10 @@ p {
   border-color: #0197d3;
 }
 
+._highlight {
+  background-color: rgba(0, 179, 250, 0.4);
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -478,19 +488,14 @@ p {
   padding: 30px 0;
 }
 
-.nav-group {
+.menu__body {
   display: flex;
-  gap: 100px;
-}
-
-.nav__button {
-  cursor: default;
-  background-color: #00B3FA;
-}
-
-.menu {
-  display: flex;
+  gap: 330px;
   align-items: center;
+}
+
+.menu__list {
+  display: flex;
   list-style: none;
   gap: 70px;
   margin: 0;
@@ -502,12 +507,26 @@ p {
   color: #2A2A2A;
   line-height: 1.5;
   font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.menu__button {
+  cursor: default;
+  background-color: #00B3FA;
+}
+
+.menu__icon {
+  display: none;
 }
 
 .promo {
   padding-top: 50px;
   display: flex;
   gap: 65px;
+}
+
+.promo__block {
+  padding-top: 140px;
 }
 
 .promo__heading {
@@ -524,6 +543,7 @@ p {
 .promo__button {
   background-color: #F6E224;
   border: 3px solid #F6E224;
+  text-decoration: none;
 }
 
 .promo__button:hover {
@@ -532,6 +552,10 @@ p {
 }
 
 .promo__image {
+  width: 100%;
+}
+
+.promo__image-container {
   max-width: 625px;
 }
 
@@ -557,9 +581,8 @@ p {
 .ingredients__cards {
   position: relative;
   display: flex;
-  justify-content: center;
   gap: 50px;
-  padding: 10px 0;
+  padding: 10px 20%;
   margin-bottom: 40px;
   overflow: hidden;
 }
@@ -569,7 +592,28 @@ p {
   margin: 0 auto;
 }
 
+.slider {
+  position: relative;
+}
+
+.slider__box-shadow {
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 185px;
+  height: 100%;
+  pointer-events: none;
+  background: transparent linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat;
+}
+
+.slider__box-shadow:first-child {
+  left: 0;
+  transform: rotate(180deg);
+}
+
 .ingredient {
+  pointer-events: none;
   flex: 1 0 auto;
   padding: 20px 0;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
@@ -580,20 +624,6 @@ p {
 .ingredient__name {
   margin-top: 10px;
   display: block;
-}
-
-.ingredient__box-shadow {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 185px;
-  height: 100%;
-  background: transparent linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%) 0% 0% no-repeat;
-}
-
-.ingredient__box-shadow:first-child {
-  left: 0;
-  transform: rotate(180deg);
 }
 
 .story {
@@ -623,6 +653,7 @@ p {
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 }
 
 .burgers__button {
@@ -636,6 +667,13 @@ p {
   text-align: center;
   border-radius: 26px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.burger._open .burger__ingredients {
+  opacity: 1;
+  margin-top: 55px;
 }
 
 .burger__heading {
@@ -649,13 +687,46 @@ p {
   text-align: right;
 }
 
+.burger__ingredients {
+  text-align: start;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.77777777rem;
+}
+
+.burger__ingredients-heading {
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.burger__ingredients-list {
+  margin: 0;
+  padding: 0;
+}
+
+.burger__ingredients-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 .container-location {
-  max-width: 860px;
+  width: 860px;
   margin: 0 auto;
 }
 
 .location {
   margin-top: 150px;
+}
+
+.location__heading {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.location__card {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -673,6 +744,7 @@ p {
 .location__image {
   display: inline-block;
   position: relative;
+  border-radius: 30px;
   width: 100%;
   height: 480px;
   background-image: url(../images/location/location-image.png);
@@ -682,8 +754,8 @@ p {
 
 .location__small-burger-container {
   position: absolute;
-  bottom: 265px;
-  left: 346px;
+  bottom: 53.5%;
+  left: 39.4%;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -706,7 +778,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 0.777777rem;
 }
 
 .footer__info {
@@ -714,4 +786,320 @@ p {
   flex-direction: column;
   align-items: end;
   gap: 5px;
+}
+
+@media screen and (max-width: 1399.98px) {
+  .logo {
+    max-width: 150px;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  .main-heading {
+    font-size: 4rem;
+  }
+
+  .large-heading {
+    font-size: 2.5rem;
+  }
+
+  .small-heading {
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    padding: 20px 0;
+  }
+
+  .menu {
+    flex: 0 1 77%;
+  }
+
+  .menu__body {
+    gap: initial;
+    justify-content: space-between;
+  }
+
+  .menu__list {
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .promo {
+    align-items: center;
+    gap: initial;
+  }
+
+  .promo__block {
+    padding-top: 0;
+    flex: 1 0 60%;
+  }
+
+  .promo__image-container {
+    max-width: 100%;
+  }
+
+  .ingredients__cards {
+    padding: 10px 15%;
+  }
+
+  .ingredient {
+    max-width: 180px;
+  }
+
+  .ingredient__image {
+    max-width: 100%;
+  }
+
+  .slider__box-shadow {
+    width: 15%;
+  }
+
+  .story {
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    text-align: center;
+  }
+
+  .story__image {
+    max-width: 100%;
+  }
+
+  .burger {
+    max-width: 100%;
+    flex: 0 1 32%;
+    padding: 15px;
+  }
+
+  .burger__image {
+    max-width: 100%;
+  }
+
+  .container-location {
+    width: 80%;
+  }
+
+  .location {
+    padding: 0;
+  }
+
+  .location__info {
+    padding: 0;
+    gap: 20px;
+  }
+
+  .location__image {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .wrapper-promo {
+    background-size: cover;
+  }
+
+  .button {
+    transition: none;
+  }
+
+  .button:hover {
+    background-color: #00B3FA;
+    border-color: #00B3FA;
+  }
+
+  .menu {
+    flex: 0;
+  }
+
+  .menu__icon {
+    display: block;
+    width: 30px;
+    height: 18px;
+    z-index: 5;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .menu__icon span,
+  .menu__icon::before,
+  .menu__icon::after {
+    transition: all 0.3s ease;
+    position: absolute;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #00B3FA;
+  }
+
+  .menu__icon::before,
+  .menu__icon::after {
+    content: "";
+  }
+
+  .menu__icon::before {
+    top: 0;
+  }
+
+  .menu__icon._active::before {
+    top: 42.5%;
+    transform: rotate(-45deg) translateY(-50%);
+  }
+
+  .menu__icon::after {
+    bottom: 0;
+  }
+
+  .menu__icon._active::after {
+    bottom: 52.5%;
+    transform: rotate(45deg) translateY(50%);
+  }
+
+  .menu__icon span {
+    top: 50%;
+    transform: scale(1) translateY(-50%);
+  }
+
+  .menu__icon._active span {
+    transform: scale(0);
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    flex-direction: column;
+    gap: 30px;
+    background-color: #F5F5F5;
+    justify-content: start;
+    padding: 100px 0 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    transform: translateX(100%);
+  }
+
+  .menu__body._active {
+    transform: translate(0);
+  }
+
+  .menu__list {
+    flex-direction: column;
+  }
+
+  .promo {
+    gap: 50px;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 75px;
+  }
+
+  .promo__button:hover {
+    background-color: #F6E224;
+    border: 3px solid #F6E224;
+  }
+
+  .ingredients {
+    margin-top: 100px;
+  }
+
+  .ingredients__cards {
+    gap: 25px;
+    padding: 10px 10%;
+  }
+
+  .ingredient {
+    max-width: 140px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .ingredient__box-shadow {
+    width: 140px;
+  }
+
+  .story {
+    margin-top: 100px;
+  }
+
+  .burgers {
+    margin-top: 75px;
+  }
+
+  .burgers__cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .burger {
+    max-width: 75%;
+    border-radius: 15px;
+  }
+
+  .burger__heading {
+    margin-bottom: 50px;
+  }
+
+  .location {
+    margin-top: 75px;
+  }
+
+  .location__info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .location__image {
+    border-radius: 15px;
+    height: 300px;
+  }
+
+  .location__small-burger-container {
+    transform: scale(0.5);
+  }
+
+  .footer {
+    margin: 150px 0 0;
+  }
+}
+
+@media screen and (max-width: 479.98px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .ingredients {
+    margin-top: 75px;
+  }
+
+  .ingredients__cards {
+    padding: 10px 10%;
+  }
+
+  .ingredient {
+    max-width: 100px;
+  }
+
+  .ingredient__box-shadow {
+    width: 90px;
+  }
+
+  .story {
+    margin-top: 75px;
+  }
+
+  .location__image {
+    height: 200px;
+  }
+
+  .location__small-burger-container {
+    transform: scale(0.35);
+  }
 }

@@ -12,7 +12,6 @@ import js from './gulp/tasks/js.js'
 import img from './gulp/tasks/img.js'
 import font from './gulp/tasks/font.js'
 import server from './gulp/tasks/server.js';
-import deploy from './gulp/tasks/deploy.js';
 
 // Watcher
 function watcher () {
@@ -32,7 +31,6 @@ export { js };
 export { img };
 export { font };
 export { clear };
-export { deploy };
 
 //Assembly
 const build = gulp.series(clear, html, scss, js, img, font);

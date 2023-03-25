@@ -3,36 +3,44 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px 0;
-    &-group{
-        display: flex;
-        gap: 100px;
-    }
-    &__button{
-        cursor: default;
-        background-color: $color-bg-blue;
-    }
 }
 .menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 70px;
-    margin: 0;
-    padding: 0;
+    &__body{
+        display: flex;
+        gap: 330px;
+        align-items: center;
+    }
+    &__list{
+        display: flex;
+        list-style: none;
+        gap: 70px;
+        margin: 0;
+        padding: 0;
+    }
     &__item{
         &-link{
             text-decoration: none;
             color: $color-text-black;
             line-height: 1.5;
             font-weight: 700;
+            transition: $transition;
         }
+    }
+    &__button{
+        cursor: default;
+        background-color: $color-bg-blue;
+    }
+    &__icon{
+        display: none;
     }
 }
 .promo{
     padding-top: 50px;
     display: flex;
     gap: 65px;
-
+    &__block{
+        padding-top: 140px;
+    }
     &__heading{
         margin-bottom: 20px;
     }
@@ -45,6 +53,7 @@
     &__button{
         background-color: $color-bg-yellow;
         border: 3px solid $color-bg-yellow;
+        text-decoration: none;
         &:hover{
             background-color: $color-bg-yellow-hover;
             border-color: $color-bg-yellow-hover;
@@ -52,6 +61,120 @@
     }
 
     &__image{
-        max-width: 625px;
+        width: 100%;
+        &-container{
+            max-width: 625px;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 1399.98px) {
+    .nav{
+        padding: 20px 0;
+    }
+    .menu{
+        flex: 0 1 77%;
+        &__body{
+            gap: initial;
+            justify-content: space-between;
+        }
+        &__list{
+            gap: 30px;
+            justify-content: center;
+        }
+    }
+    .promo{
+        align-items: center;
+        gap: initial;
+        &__block{
+            padding-top: 0;
+            flex: 1 0 60%;
+        }
+        &__image{
+            &-container{
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .menu{
+        flex: 0;
+        &__icon{
+            display: block;
+            width: 30px;
+            height: 18px;
+            z-index: 5;
+            position: relative;
+            cursor: pointer;
+            & span,
+            &::before,
+            &::after{
+                transition: $transition;
+                position: absolute;
+                left: 0;
+                height: 3px;
+                width: 100%;
+                background-color: $color-bg-blue;
+            }
+            &::before,
+            &::after{
+                content: '';
+            }
+            &::before{
+                top: 0;
+            }
+            &._active::before{
+                top: 42.5%;
+                transform: rotate(-45deg) translateY(-50%);
+            }
+            &::after{
+                bottom: 0;
+            }
+            &._active::after{
+                bottom: 52.5%;
+                transform: rotate(45deg) translateY(50%);
+            }
+            & span{
+                top: 50%;
+                transform: scale(1) translateY(-50%);
+            }
+            &._active span{
+                transform: scale(0);
+            }
+        }
+        &__body{
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            flex-direction: column;
+            gap: 30px;
+            background-color: $color-bg-gray;
+            justify-content: start;
+            padding: 100px 0 0;
+            text-align: center;
+            transition: $transition;
+            transform: translateX(100%);
+            &._active{
+                transform: translate(0);
+            }
+        }
+        &__list{
+            flex-direction: column;
+        }
+    }
+    .promo{
+        gap: 50px;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 75px;
+        &__button:hover{
+            background-color: $color-bg-yellow;
+            border: 3px solid $color-bg-yellow;
+        }
     }
 }

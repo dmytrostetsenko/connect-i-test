@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/main.min.css">
+    <script src="./js/main.js" defer></script>
     <title>Connect-i task</title>
 </head>
 <body>
@@ -12,24 +13,29 @@
         <div class="wrapper">
             <div class="container">
                 <nav class="nav">
-                    <div class="nav-group">
-                        <img class="nav-group__logo" src="./images/logo.png" alt="logo">
-                        <ul class="menu">
-                            <li class="menu__item">
-                                <a href="#" class="menu__item-link">INGREDIENT</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="#" class="menu__item-link">STORY</a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="#" class="menu__item-link">BURGERS</a>
-                            </li>
-                           <li class="menu__item">
-                                <a href="#" class="menu__item-link">BURGERS</a>
-                            </li>
-                       </ul>
+                    <img class="logo nav__logo" src="./images/logo.png" alt="logo">
+                    <div class="menu">
+                        <div class="menu__body">
+                            <ul class="menu__list">
+                                <li class="menu__item">
+                                    <a href="#ingredients" class="menu__item-link">INGREDIENTS</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="#story" class="menu__item-link">STORY</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="#burgers" class="menu__item-link">BURGERS</a>
+                                </li>
+                               <li class="menu__item">
+                                    <a href="#location" class="menu__item-link">LOCATION</a>
+                                </li>
+                           </ul>
+                           <button class="button menu__button">Order now</button>
+                        </div>
+                        <div class="menu__icon">
+                            <span></span>
+                        </div>
                     </div>
-                    <button class="button nav__button">Order now</button>
                 </nav>
             </div>
         </div>
@@ -42,9 +48,11 @@
                         <article class="promo__block">
                             <h1 class="main-heading promo__heading">Burger Factory</h1>
                             <p class="promo__description">Your dreamed burger close to your locations!</p>
-                            <button class="button promo__button">Discover the ingredients</button>
+                            <a href="#ingredients" class="button promo__button">Discover the ingredients</a>
                         </article>
-                        <img class="promo__image" src="./images/promo/promo-burger.png" alt="image with big burger">
+                        <div class="promo__image-container">
+                            <img class="promo__image" src="./images/promo/promo-burger.png" alt="image with big burger">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -52,34 +60,36 @@
         <div class="wrapper">
             <section>
                 <div class="container">
-                    <article class="ingredients">
+                    <article class="ingredients" id="ingredients">
                         <h2 class="large-heading ingredients__heading">INGREDIENTS</h2>
                         <strong class="ingredients__description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce mollis id arcu vel maximus.
                         </strong>
-                        <div class="ingredients__cards">
-                            <div class="ingredient__box-shadow"></div>
-                            <div class="ingredient">
-                                <img src="./images/ingredients/ingredients-buns.png" alt="buns image">
-                                <strong class="ingredient__name">buns</strong>
+                        <div class="slider">
+                            <div class="slider__box-shadow"></div>
+                            <div class="slider-inner ingredients__cards">
+                                <div class="ingredient">
+                                    <img class="ingredient__image" src="./images/ingredients/ingredients-buns.png" alt="buns image">
+                                    <strong class="ingredient__name">buns</strong>
+                                </div>
+                                <div class="ingredient">
+                                    <img class="ingredient__image" src="./images/ingredients/ingredients-salad.png" alt="salad image">
+                                    <strong class="ingredient__name">Salad</strong>
+                                </div>
+                                <div class="ingredient">
+                                    <img class="ingredient__image" src="./images/ingredients/ingredients-tomato.png" alt="tomato image">
+                                    <strong class="ingredient__name">Tomato</strong>
+                                </div>
+                                <div class="ingredient">
+                                    <img class="ingredient__image" src="./images/ingredients/ingredients-cheese.png" alt="cheese image">
+                                    <strong class="ingredient__name">Cheese</strong>
+                                </div>
+                                <div class="ingredient">
+                                    <img class="ingredient__image" src="./images/ingredients/ingredients-meat.png" alt="meat image">
+                                    <strong class="ingredient__name">Meat</strong>
+                                </div>
                             </div>
-                            <div class="ingredient">
-                                <img src="./images/ingredients/ingredients-salad.png" alt="salad image">
-                                <strong class="ingredient__name">Salad</strong>
-                            </div>
-                            <div class="ingredient">
-                                <img src="./images/ingredients/ingredients-tomato.png" alt="tomato image">
-                                <strong class="ingredient__name">Tomato</strong>
-                            </div>
-                            <div class="ingredient">
-                                <img src="./images/ingredients/ingredients-cheese.png" alt="cheese image">
-                                <strong class="ingredient__name">Cheese</strong>
-                            </div>
-                            <div class="ingredient">
-                                <img src="./images/ingredients/ingredients-meat.png" alt="meat image">
-                                <strong class="ingredient__name">Meat</strong>
-                            </div>
-                            <div class="ingredient__box-shadow"></div>
+                            <div class="slider__box-shadow"></div>
                         </div>
                         <p class="ingredients__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget consequat lorem. Ut nec placerat purus. Fusce vitae faucibus augue, non commodo elit. 
@@ -91,7 +101,7 @@
             </section>
             <section>
                 <div class="container">
-                    <div class="story">
+                    <div class="story" id="story">
                         <article class="story__info">
                             <h2 class="large-heading story__heading">The story</h2>
                             <strong class="story__description">
@@ -103,28 +113,52 @@
                                 Cras elit lorem, mollis ut feugiat ac, ultricies eu dolor.
                             </p>
                         </article>
-                        <img src="./images/story/story-image.png" alt="image with appetizing burger and fries">
+                        <img class="story__image" src="./images/story/story-image.png" alt="image with appetizing burger and fries">
                     </div>
                 </div>
             </section>
             <section>
                 <div class="container">
-                    <article class="burgers">
+                    <article class="burgers" id="burgers">
                         <h2 class="large-heading burgers__heading">Burgers</h2>
                         <div class="burgers__cards">
                             <div class="burger">
                                 <h3 class="small-heading burger__heading">1/4 Pound Cheese</h3>
-                                <img src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <img class="burger__image" src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <div class="burger__ingredients">
+                                    <span class="burger__ingredients-heading">Ingredient</span>
+                                    <ul class="burger__ingredients-list">
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                    </ul>
+                                </div>
                                 <strong class="burger__details">Details</strong>
                             </div>
                             <div class="burger">
                                 <h3 class="small-heading burger__heading">Big Burger</h3>
-                                <img src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <img class="burger__image" src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <div class="burger__ingredients">
+                                    <span class="burger__ingredients-heading">Ingredient</span>
+                                    <ul class="burger__ingredients-list">
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                    </ul>
+                                </div>
                                 <strong class="burger__details">Details</strong>
                             </div>
                             <div class="burger">
                                 <h3 class="small-heading burger__heading">Pure Bacon</h3>
-                                <img src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <img class="burger__image" src="./images/burgers/burgers-image.png" alt="image with burger">
+                                <div class="burger__ingredients">
+                                    <span class="burger__ingredients-heading">Ingredient</span>
+                                    <ul class="burger__ingredients-list">
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                        <li class="burger__ingredients-item">Lorem ipsum</li>
+                                    </ul>
+                                </div>
                                 <strong class="burger__details">Details</strong>
                             </div>
                         </div>
@@ -134,17 +168,19 @@
             </section>
             <section>
                 <div class="container-location">
-                    <article class="location">
+                    <article class="location" id="location">
                         <h2 class="large-heading location__heading">Location</h2>
-                        <address class="adress location__info">
-                            <strong class="adress__name">Burger Factory</strong>
-                            <span>Pl. de la Riponne 10</span>
-                            <span>1005 Lausanne</span>
-                            <span>021 800 00 00</span>
-                        </address>
-                        <div class="location__image">
-                            <div class="location__small-burger-container">
-                                <img src="./images/location/location-burger.png" alt="image with small burger instead of a geotag" class="location__small-burger">
+                        <div class="location__card">
+                            <address class="adress location__info">
+                                <strong class="adress__name">Burger Factory</strong>
+                                <span>Pl. de la Riponne 10</span>
+                                <span>1005 Lausanne</span>
+                                <span>021 800 00 00</span>
+                            </address>
+                            <div class="location__image">
+                                <div class="location__small-burger-container">
+                                    <img src="./images/location/location-burger.png" alt="image with small burger instead of a geotag on chart" class="location__small-burger">
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -156,7 +192,7 @@
         <div class="wrapper wrapper-footer">
             <div class="container">
                 <div class="footer">
-                    <img src="./images/logo.png" alt="logo">
+                    <img class="logo footer__logo" src="./images/logo.png" alt="logo">
                     <address class="adress footer__info">
                         <strong class="adress__name">Burger Factory</strong>
                         <span>Pl. de la Riponne 10</span>
